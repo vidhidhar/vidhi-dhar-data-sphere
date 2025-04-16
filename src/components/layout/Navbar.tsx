@@ -41,14 +41,16 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-3">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
+            <a href="https://github.com/vidhidhar" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
               <Github size={18} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
+            <a href="https://linkedin.com/in/vidhidhar" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
               <Linkedin size={18} />
             </a>
-            <Button variant="default" size="sm">
-              <Mail size={16} className="mr-2" /> Get In Touch
+            <Button variant="default" size="sm" asChild>
+              <a href="#contact">
+                <Mail size={16} className="mr-2" /> Get In Touch
+              </a>
             </Button>
           </div>
 
@@ -75,10 +77,10 @@ const Navbar = () => {
             <a href="#contact" className="nav-link py-3 text-base" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
             
             <div className="flex items-center space-x-4 pt-2">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
+              <a href="https://github.com/vidhidhar" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
                 <Github size={20} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
+              <a href="https://linkedin.com/in/vidhidhar" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
                 <Linkedin size={20} />
               </a>
               <a href="mailto:vidhidhar.vd@gmail.com" className="text-gray-600 hover:text-primary">

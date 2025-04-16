@@ -16,10 +16,10 @@ const Footer = () => {
               translating complex data into actionable insights.
             </p>
             <div className="flex items-center space-x-3">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
+              <a href="https://github.com/vidhidhar" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
                 <Github size={18} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
+              <a href="https://linkedin.com/in/vidhidhar" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
                 <Linkedin size={18} />
               </a>
               <a href="mailto:vidhidhar.vd@gmail.com" className="text-gray-600 hover:text-primary">
