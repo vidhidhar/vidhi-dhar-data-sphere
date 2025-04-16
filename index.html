@@ -5,25 +5,232 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vidhi Dhar | Data Scientist & Analyst</title>
-    <meta name="description" content="Portfolio of Vidhi Dhar - Data Scientist with expertise in Python, SQL, and data visualization tools like Tableau and Power BI" />
-    <meta name="author" content="Vidhi Dhar" />
-
-    <meta property="og:title" content="Vidhi Dhar | Data Scientist & Analyst" />
-    <meta property="og:description" content="Portfolio of Vidhi Dhar - Data Scientist with expertise in Python, SQL, and data visualization tools like Tableau and Power BI" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="description" content="Portfolio of Vidhi Dhar - Data Scientist with expertise in Python, SQL, and data visualization tools" />
     
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-  </head>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vidhidhar.github.io/" />
+    <meta property="og:title" content="Vidhi Dhar | Data Scientist & Analyst" />
+    <meta property="og:description" content="Portfolio of Vidhi Dhar - Data Scientist with expertise in Python, SQL, and data visualization tools" />
+    <meta property="og:image" content="profile-image.png" />
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vidhi Dhar | Data Scientist & Analyst" />
+    <meta name="twitter:description" content="Portfolio of Vidhi Dhar - Data Scientist with expertise in Python, SQL, and data visualization tools" />
+    <meta name="twitter:image" content="profile-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="profile-image.png" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              datasphere: {
+                blue: '#3B82F6',
+                indigo: '#6366F1',
+                purple: '#8B5CF6',
+                violet: '#A78BFA',
+                cyan: '#22D3EE',
+                teal: '#2DD4BF'
+              }
+            },
+            backgroundImage: {
+              'data-gradient': 'linear-gradient(90deg, #8B5CF6 0%, #3B82F6 50%, #06B6D4 100%)',
+              'hero-pattern': 'url("data-grid-bg.png")'
+            },
+            fontFamily: {
+              'sans': ['Inter', 'sans-serif'],
+              'display': ['Space Grotesk', 'sans-serif']
+            },
+            keyframes: {
+              'data-pulse': {
+                '0%, 100%': { opacity: '0.6' },
+                '50%': { opacity: '1' }
+              }
+            },
+            animation: {
+              'data-pulse': 'data-pulse 2s ease-in-out infinite'
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+      /* Additional custom styles */
+      .gradient-text {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 50%, #06B6D4 100%);
+      }
+
+      .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #3B82F6;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: bottom-right;
+      }
+
+      .nav-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom-left;
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-foreground font-sans">
+    <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md shadow-sm py-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <a href="#" class="flex items-center">
+          <span class="text-xl font-display font-bold gradient-text">Vidhi Dhar</span>
+          <span class="hidden sm:inline-block ml-2 px-2 py-1 text-xs bg-gradient-to-r from-datasphere-blue to-datasphere-purple text-white rounded-md">
+            Data Scientist
+          </span>
+        </a>
+        <div class="hidden md:flex space-x-4">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center relative pt-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+          <img src="profile-image.png" alt="Vidhi Dhar" class="mx-auto w-48 h-48 rounded-full mb-6 shadow-lg">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 gradient-text">Vidhi Dhar</h1>
+          <p class="text-xl md:text-2xl text-gray-600 mb-8">
+            Data Scientist & Analyst | Python | SQL | Data Visualization
+          </p>
+          <div class="flex justify-center space-x-4">
+            <a href="https://linkedin.com" target="_blank" class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition">
+              Connect on LinkedIn
+            </a>
+            <a href="mailto:vidhidhar.vd@gmail.com" class="bg-gray-100 text-gray-800 px-6 py-3 rounded-full hover:bg-gray-200 transition">
+              Contact Me
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">About Me</h2>
+          <div class="text-center max-w-2xl mx-auto">
+            <p class="text-gray-600 text-lg">
+              Detail-oriented Data Analyst with 2+ years of experience specializing in Python, SQL, and data visualization tools. 
+              Passionate about transforming complex data sets into actionable insights that drive business decisions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">Professional Experience</h2>
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+              <h3 class="text-xl font-semibold">Associate Data Analyst | Victoria Solutions</h3>
+              <p class="text-gray-600">Feb 2025 - Present | London, United Kingdom</p>
+              <ul class="list-disc list-inside text-gray-600 mt-4">
+                <li>Identified patterns and trends in large data sets</li>
+                <li>Developed and optimized SQL/Python scripts</li>
+                <li>Designed interactive dashboards in Tableau/Power BI</li>
+              </ul>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+              <h3 class="text-xl font-semibold">Data Analyst | Publicis Media</h3>
+              <p class="text-gray-600">Feb 2021 - Sep 2022 | Gurugram, India</p>
+              <ul class="list-disc list-inside text-gray-600 mt-4">
+                <li>Analyzed 1M+ rows of data to uncover insights</li>
+                <li>Designed data pipelines reducing processing time</li>
+                <li>Deployed predictive models with up to 90% accuracy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">Projects</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-gray-50 p-6 rounded-lg card-hover">
+              <img src="project-pyguide.png" alt="PyGuide Project" class="w-full mb-4 rounded-lg">
+              <h3 class="text-xl font-semibold mb-2">PyGuide</h3>
+              <p class="text-gray-600">AI-driven Python programming assistant with advanced guidance capabilities.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg card-hover">
+              <img src="project-fnirs.png" alt="fNIRS Data Vault Project" class="w-full mb-4 rounded-lg">
+              <h3 class="text-xl font-semibold mb-2">fNIRS Data Vault</h3>
+              <p class="text-gray-600">Implemented data vault for neuroimaging datasets to improve storage efficiency.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">Get In Touch</h2>
+          <div class="text-center">
+            <p class="text-gray-600 mb-6">
+              I'm open to data science and analytics opportunities. Feel free to reach out!
+            </p>
+            <div class="flex justify-center space-x-4">
+              <a href="mailto:vidhidhar.vd@gmail.com" class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition">
+                Email Me
+              </a>
+              <a href="https://linkedin.com" target="_blank" class="bg-gray-100 text-gray-800 px-6 py-3 rounded-full hover:bg-gray-200 transition">
+                LinkedIn Profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-100 py-8">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <p class="text-gray-600">&copy; 2024 Vidhi Dhar. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
+
