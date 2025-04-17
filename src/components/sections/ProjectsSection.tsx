@@ -3,6 +3,7 @@ import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExternalLink, Github } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const projects = [
   {
@@ -40,6 +41,16 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
+  const { toast } = useToast();
+  
+  const handleDemoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Demo Coming Soon",
+      description: "Live demo will be available in the near future.",
+    });
+  };
+
   return (
     <section id="projects" className="py-16 md:py-24 bg-white">
       <div className="section-container">
@@ -93,13 +104,13 @@ const ProjectsSection = () => {
                   <Github size={16} className="mr-1" />
                   View Code
                 </a>
-                <a 
-                  href="#" 
+                <button 
+                  onClick={handleDemoClick}
                   className="text-sm text-primary flex items-center hover:underline"
                 >
                   <ExternalLink size={16} className="mr-1" />
                   Live Demo
-                </a>
+                </button>
               </CardFooter>
             </Card>
           ))}
