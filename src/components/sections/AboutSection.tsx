@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { GraduationCap, Briefcase, Award, BarChart3, Database } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -84,7 +83,7 @@ const AboutSection = () => {
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-datasphere-purple/20 rounded-full blur-2xl"></div>
             <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-datasphere-blue/20 rounded-full blur-3xl"></div>
             <img 
-              src="/profile-image.png" 
+              src="./profile-image.png" 
               alt="Vidhi Dhar" 
               className="rounded-lg shadow-lg z-10 relative w-full max-w-md mx-auto"
             />
