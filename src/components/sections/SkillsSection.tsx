@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { 
   LineChart, Line, BarChart, Bar, PieChart, Pie, ResponsiveContainer, 
@@ -48,12 +47,46 @@ const SkillsSection = () => {
   const chartRefs = useRef<(HTMLDivElement | null)[]>([]);
   
   useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .recharts-wrapper {
+        width: 100% !important;
+      }
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out forwards;
+        opacity: 1 !important;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+  
+  useEffect(() => {
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+      
+      chartRefs.current.forEach(ref => {
+        if (ref) {
+          ref.style.opacity = '1';
+          ref.classList.add('animate-fade-in');
+        }
+      });
+    }, 500);
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             setTimeout(() => {
               entry.target.classList.add('animate-fade-in');
+              window.dispatchEvent(new Event('resize'));
             }, 100);
           }
         });
@@ -86,8 +119,9 @@ const SkillsSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div 
-            className="space-y-6 opacity-0" 
+            className="space-y-6" 
             ref={el => chartRefs.current[0] = el}
+            style={{ opacity: 1 }}
           >
             <h3 className="text-2xl font-display font-semibold">Technical Skills</h3>
             <div className="space-y-4">
@@ -104,8 +138,8 @@ const SkillsSection = () => {
           </div>
 
           <div 
-            className="opacity-0" 
             ref={el => chartRefs.current[1] = el}
+            style={{ opacity: 1 }}
           >
             <h3 className="text-2xl font-display font-semibold mb-6">Tools Experience</h3>
             <div className="h-[300px] w-full">
@@ -132,8 +166,8 @@ const SkillsSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div 
-            className="opacity-0" 
             ref={el => chartRefs.current[2] = el}
+            style={{ opacity: 1 }}
           >
             <Card className="border bg-gray-50 shadow-sm">
               <CardContent className="p-6">
@@ -164,8 +198,8 @@ const SkillsSection = () => {
           </div>
 
           <div 
-            className="opacity-0" 
             ref={el => chartRefs.current[3] = el}
+            style={{ opacity: 1 }}
           >
             <Card className="border bg-gray-50 shadow-sm">
               <CardContent className="p-6">

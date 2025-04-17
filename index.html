@@ -12,6 +12,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
+  <!-- Base path for GitHub Pages -->
+  <base href="./" />
 </head>
 <body>
   <div id="root"></div>
@@ -20,6 +22,11 @@
   <script>
     window.addEventListener('error', function(e) {
       console.error('Global error caught:', e.error || e.message);
+    });
+    
+    // Log when the page loads to help with debugging
+    window.addEventListener('load', function() {
+      console.log('Page fully loaded');
     });
   </script>
 </body>

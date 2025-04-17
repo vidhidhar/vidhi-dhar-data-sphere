@@ -34,6 +34,7 @@ jobs:
         run: npm run build
         env:
           CI: false  # This prevents treating warnings as errors
+          BASE_URL: "./"  # Ensure base URL is set for GitHub Pages
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
