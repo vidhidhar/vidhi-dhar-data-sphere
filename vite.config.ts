@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "./", // Add this line for GitHub Pages compatibility
+  base: "./", // This ensures all assets use relative paths
   server: {
     host: "::",
     port: 8080,
@@ -21,4 +21,8 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    assetsInlineLimit: 0, // This ensures images are properly processed
+    chunkSizeWarningLimit: 1000, // Increase chunk size warning limit
+  }
 }));

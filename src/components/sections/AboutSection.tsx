@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { GraduationCap, Briefcase, Award, BarChart3, Database } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -85,7 +86,14 @@ const AboutSection = () => {
             <img 
               src="./profile-image.png" 
               alt="Vidhi Dhar" 
+              loading="eager"
+              width="400"
+              height="400"
               className="rounded-lg shadow-lg z-10 relative w-full max-w-md mx-auto"
+              onError={(e) => {
+                console.error(`Failed to load profile image`);
+                e.currentTarget.src = "placeholder.svg"; // Fallback to placeholder
+              }}
             />
           </div>
         </div>

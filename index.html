@@ -3,14 +3,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vidhi Dhar - Data Science Portfolio</title>
   <!-- Add the required Lovable script tag -->
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+  <!-- Force reload if cached improperly -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
 </head>
 <body>
   <div id="root"></div>
   <script type="module" src="./src/main.tsx"></script>
+  <!-- Enable console error logging -->
+  <script>
+    window.addEventListener('error', function(e) {
+      console.error('Global error caught:', e.error || e.message);
+    });
+  </script>
 </body>
 </html>

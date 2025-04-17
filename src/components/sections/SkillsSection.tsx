@@ -52,7 +52,9 @@ const SkillsSection = () => {
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
+            setTimeout(() => {
+              entry.target.classList.add('animate-fade-in');
+            }, 100);
           }
         });
       },
@@ -106,23 +108,25 @@ const SkillsSection = () => {
             ref={el => chartRefs.current[1] = el}
           >
             <h3 className="text-2xl font-display font-semibold mb-6">Tools Experience</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart
-                data={toolExperience}
-                layout="vertical"
-                margin={{ top: 5, right: 30, left: 30, bottom: 5 }}
-              >
-                <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                <XAxis type="number" domain={[0, 100]} />
-                <YAxis type="category" dataKey="name" />
-                <Tooltip formatter={(value) => [`${value}%`, 'Proficiency']} />
-                <Bar dataKey="value" radius={[0, 6, 6, 0]}>
-                  {toolExperience.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
+            <div className="h-[300px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={toolExperience}
+                  layout="vertical"
+                  margin={{ top: 5, right: 30, left: 30, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+                  <XAxis type="number" domain={[0, 100]} />
+                  <YAxis type="category" dataKey="name" />
+                  <Tooltip formatter={(value) => [`${value}%`, 'Proficiency']} />
+                  <Bar dataKey="value" radius={[0, 6, 6, 0]}>
+                    {toolExperience.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </div>
 
@@ -134,25 +138,27 @@ const SkillsSection = () => {
             <Card className="border bg-gray-50 shadow-sm">
               <CardContent className="p-6">
                 <h3 className="text-xl font-display font-semibold mb-6">Project Distribution</h3>
-                <ResponsiveContainer width="100%" height={280}>
-                  <PieChart>
-                    <Pie
-                      data={projectsData}
-                      cx="50%"
-                      cy="50%"
-                      innerRadius={60}
-                      outerRadius={90}
-                      fill="#8884d8"
-                      dataKey="value"
-                      label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                    >
-                      {projectsData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                      ))}
-                    </Pie>
-                    <Tooltip formatter={(value) => [`${value}%`, 'Projects']} />
-                  </PieChart>
-                </ResponsiveContainer>
+                <div className="h-[280px] w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={projectsData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={90}
+                        fill="#8884d8"
+                        dataKey="value"
+                        label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                      >
+                        {projectsData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip formatter={(value) => [`${value}%`, 'Projects']} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -164,25 +170,27 @@ const SkillsSection = () => {
             <Card className="border bg-gray-50 shadow-sm">
               <CardContent className="p-6">
                 <h3 className="text-xl font-display font-semibold mb-6">Professional Skills Growth</h3>
-                <ResponsiveContainer width="100%" height={280}>
-                  <LineChart
-                    data={softSkills}
-                    margin={{ top: 5, right: 30, left: 0, bottom: 5 }}
-                  >
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip formatter={(value) => [`${value} pts`, 'Skill Level']} />
-                    <Line
-                      type="monotone"
-                      dataKey="value"
-                      stroke="#3B82F6"
-                      strokeWidth={2}
-                      dot={{ stroke: '#8B5CF6', strokeWidth: 2, r: 4, fill: 'white' }}
-                      activeDot={{ r: 6, fill: '#8B5CF6' }}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
+                <div className="h-[280px] w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart
+                      data={softSkills}
+                      margin={{ top: 5, right: 30, left: 0, bottom: 5 }}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                      <XAxis dataKey="name" />
+                      <YAxis />
+                      <Tooltip formatter={(value) => [`${value} pts`, 'Skill Level']} />
+                      <Line
+                        type="monotone"
+                        dataKey="value"
+                        stroke="#3B82F6"
+                        strokeWidth={2}
+                        dot={{ stroke: '#8B5CF6', strokeWidth: 2, r: 4, fill: 'white' }}
+                        activeDot={{ r: 6, fill: '#8B5CF6' }}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
               </CardContent>
             </Card>
           </div>

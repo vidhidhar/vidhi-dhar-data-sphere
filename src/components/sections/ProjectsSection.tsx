@@ -66,10 +66,18 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <Card key={index} className="overflow-hidden border bg-white shadow-md card-hover">
               <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                {/* Ensure image is properly loaded by forcing eager loading and explicit dimensions */}
                 <img 
                   src={project.image} 
                   alt={project.title} 
+                  loading="eager"
+                  width="600"
+                  height="400"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  onError={(e) => {
+                    console.error(`Failed to load image: ${project.image}`);
+                    e.currentTarget.src = "placeholder.svg"; // Fallback to placeholder
+                  }}
                 />
               </div>
               <CardHeader>
