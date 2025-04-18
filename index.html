@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,28 +5,461 @@
   <link rel="icon" type="image/svg+xml" href="./favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vidhi Dhar - Data Science Portfolio</title>
-  <!-- Add the required Lovable script tag -->
-  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-  <!-- Force reload if cached improperly -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <!-- Base path for GitHub Pages -->
-  <base href="./" />
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap">
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <style>
+    /* Base styles */
+    :root {
+      --primary-color: #3b82f6;
+      --secondary-color: #1e293b;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Custom classes */
+    .gradient-text {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #64748b;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary-color);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Data sphere animations */
+    .data-sphere-container {
+      position: relative;
+      height: 500px;
+      width: 500px;
+      overflow: hidden;
+    }
+
+    .data-node {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.6);
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 0.4; }
+      100% { transform: scale(1); opacity: 0.6; }
+    }
+
+    /* Section styles */
+    .section-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+    }
+
+    /* Hero Section Styles */
+    .animate-fade-in {
+      animation: fadeIn 1s forwards;
+    }
+
+    .animate-fade-in-slow {
+      animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Skill Bar Styles */
+    .skill-bar {
+      height: 0.5rem;
+      border-radius: 1rem;
+      background: linear-gradient(to right, #8b5cf6, #3b82f6);
+    }
+
+    /* Timeline Dot Styles */
+    .timeline-dot {
+      position: absolute;
+      left: -10px;
+      top: 6px;
+      height: 1.25rem;
+      width: 1.25rem;
+      border-radius: 50%;
+      border: 4px solid #f9fafb;
+      background-color: #3b82f6;
+    }
+  </style>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="./src/main.tsx"></script>
-  <!-- Enable console error logging -->
-  <script>
-    window.addEventListener('error', function(e) {
-      console.error('Global error caught:', e.error || e.message);
-    });
-    
-    // Log when the page loads to help with debugging
-    window.addEventListener('load', function() {
-      console.log('Page fully loaded');
-    });
-  </script>
-</body>
-</html>
+  <div id="root">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex-shrink-0">
+            <a href="#" class="flex items-center">
+              <span class="text-xl font-bold gradient-text">Vidhi Dhar</span>
+              <span class="hidden sm:inline-block ml-2 px-2 py-1 text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-md">
+                Data Scientist
+              </span>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-4 flex items-center space-x-4">
+              <a href="#about" class="nav-link">About</a>
+              <a href="#experience" class="nav-link">Experience</a>
+              <a href="#skills" class="nav-link">Skills</a>
+              <a href="#projects" class="nav-link">Projects</a>
+              <a href="#contact" class="nav-link">Contact</a>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-4 flex items-center space-x-4">
+              <a href="https://github.com/vidhidhar" target="_blank" class="text-gray-600 hover:text-blue-500">GitHub</a>
+              <a href="https://linkedin.com/in/vidhidhar" target="_blank" class="text-gray-600 hover:text-blue-500">LinkedIn</a>
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Get In Touch
+              </button>
+            </div>
+          </div>
+          <div class="md:hidden">
+            <button data-mobile-menu class="text-gray-600 hover:text-blue-500 focus:outline-none">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="md:hidden hidden" data-mobile-menu-items>
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="#about" class="nav-link block px-3 py-2 rounded-md text-base font-medium">About</a>
+          <a href="#experience" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Experience</a>
+          <a href="#skills" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+          <a href="#projects" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+          <a href="#contact" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+        </div>
+        <div class="px-2 py-3 space-y-1 sm:px-3">
+          <a href="https://github.com/vidhidhar" target="_blank" class="nav-link block px-3 py-2 rounded-md text-base font-medium">GitHub</a>
+          <a href="https://linkedin.com/in/vidhidhar" target="_blank" class="nav-link block px-3 py-2 rounded-md text-base font-medium">LinkedIn</a>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block">
+            Get In Touch
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="relative min-h-screen flex items-center">
+        <div class="section-container">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 animate-fade-in">
+              <div class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-500 text-sm font-medium mb-2">
+                Data Scientist & Analyst
+              </div>
+              <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+                Hi, I'm <span class="gradient-text">Vidhi Dhar</span>
+              </h1>
+              <p class="text-xl text-gray-600 max-w-lg">
+                Transforming complex data into actionable insights through Python, SQL, and visualization tools.
+                Let's turn your data challenges into opportunities.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md">View My Work</button>
+                <button class="bg-transparent hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 border border-gray-300 rounded-md">
+                  Download Resume
+                </button>
+              </div>
+            </div>
+            <div class="relative animate-fade-in-slow">
+              <div class="data-sphere-container mx-auto"></div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-float">
+          <p class="text-sm text-gray-500 mb-2">Scroll to explore</p>
+          <svg class="h-6 w-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="section-container">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+            <div class="w-20 h-1 bg-blue-500 mx-auto mb-6"></div>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              Detail-oriented Data Analyst with 2+ years of experience specializing in Python, SQL, and data visualization tools.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 order-2 md:order-1">
+              <div class="space-y-4">
+                <h3 class="text-2xl font-bold gradient-text">
+                  Transforming Data into Actionable Insights
+                </h3>
+                <p class="text-gray-600">
+                  I'm passionate about analyzing complex data sets, designing robust data models,
+                  and optimizing data pipelines to support business goals. With a background in
+                  Information Technology and a Master's in Data Science from the University of Birmingham,
+                  I combine technical expertise with business acumen to deliver valuable insights.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                  <div class="flex flex-col items-center text-center">
+                    <div class="p-3 rounded-full bg-blue-100 mb-4">
+                      <svg class="h-6 w-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.221-.773-9-2.245M16 6.375A23.958 23.958 0 0112 9c-3.004 0-5.857-.68-8.519-2.625M2 10.248c.447.276.961.651 1.534 1.056l1.191 1.489c1.263 1.58 3.275 2.709 5.12 2.947M16.5 5.255c.453.219.975.526 1.549.865l1.159 1.205c1.216 1.255 3.056 2.019 4.852 2.079M10 18.5v-6m-4 3h8"></path>
+                      </svg>
+                    </div>
+                    <h4 class="font-medium">2+ Years</h4>
+                    <p class="text-sm text-gray-500">Professional Experience</p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                  <div class="flex flex-col items-center text-center">
+                    <div class="p-3 rounded-full bg-blue-100 mb-4">
+                      <svg class="h-6 w-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 4.75 7.5 5c-1.683.237-3.317.556-4.608 1.369M12 6.253C13.168 5.477 14.754 4.75 16.5 5c1.683.237 3.317.556 4.608 1.369M12 6.253C11.214 13 12.686 19.747 18 21.75l-6-2.25"></path>
+                      </svg>
+                    </div>
+                    <h4 class="font-medium">MSc Data Science</h4>
+                    <p class="text-sm text-gray-500">University of Birmingham</p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                  <div class="flex flex-col items-center text-center">
+                    <div class="p-3 rounded-full bg-blue-100 mb-4">
+                      <svg class="h-6 w-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                      </svg>
+                    </div>
+                    <h4 class="font-medium">SQL & Python</h4>
+                    <p class="text-sm text-gray-500">Technical Expertise</p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                  <div class="flex flex-col items-center text-center">
+                    <div class="p-3 rounded-full bg-blue-100 mb-4">
+                      <svg class="h-6 w-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14a1.5 1.5 0 001.5 1.5h9a1.5 1.5 0 001.5-1.5V11.5M15 10l-2-5m-1 5l-2-5"></path>
+                      </svg>
+                    </div>
+                    <h4 class="font-medium">Data Visualization</h4>
+                    <p class="text-sm text-gray-500">Tableau & Power BI</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative order-1 md:order-2">
+              <div class="absolute -top-6 -left-6 w-24 h-24 bg-purple-200 rounded-full blur-2xl"></div>
+              <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-200 rounded-full blur-3xl"></div>
+              <img src="./profile-image.png" alt="Vidhi Dhar" class="rounded-lg shadow-lg z-10 relative w-full max-w-md mx-auto" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="py-16 md:py-24 bg-gray-50">
+        <div class="section-container">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
+            <div class="w-20 h-1 bg-blue-500 mx-auto mb-6"></div>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              My professional journey in the world of data analytics and visualization.
+            </p>
+          </div>
+
+          <div class="max-w-4xl mx-auto">
+            <div class="relative border-l-2 border-blue-300 ml-3 pl-8 space-y-12">
+              <div class="relative animate-fade-in">
+                <div class="timeline-dot"></div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                  <div class="mb-4">
+                    <div class="inline-block px-3 py-1 mb-2 rounded-full bg-blue-100 text-blue-500 text-sm">
+                      Feb 2025 - Present
+                    </div>
+                    <h3 class="text-xl font-semibold">Associate Data Analyst</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mt-1">
+                      <span class="flex items-center">
+                        <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.221-.773-9-2.245M16 6.375A23.958 23.958 0 0112 9c-3.004 0-5.857-.68-8.519-2.625M2 10.248c.447.276.961.651 1.534 1.056l1.191 1.489c1.263 1.58 3.275 2.709 5.12 2.947M16.5 5.255c.453.219.975.526 1.549.865l1.159 1.205c1.216 1.255 3.056 2.019 4.852 2.079M10 18.5v-6m-4 3h8"></path>
+                        </svg>
+                        Victoria Solutions
+                      </span>
+                      <span class="flex items-center">
+                        <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 0011.314 0z"></path>
+                        </svg>
+                        London, United Kingdom
+                      </span>
+                    </div>
+                  </div>
+
+                  <ul class="space-y-2 text-gray-600">
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Identified patterns and trends in large data sets and provided actionable insights.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Developed and optimized SQL/Python scripts, reducing data extraction and processing time by 30% across 3+ data sources.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Designed and maintained 5+ interactive dashboards in Tableau/Power BI, enabling real-time tracking of key business metrics.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Analyzed data to identify root causes of problems and recommend corrective actions.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Implemented business intelligence solutions to increase operational efficiency.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Generated standard and custom reports to provide insights into business performance.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="relative animate-fade-in">
+                <div class="timeline-dot"></div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                  <div class="mb-4">
+                    <div class="inline-block px-3 py-1 mb-2 rounded-full bg-blue-100 text-blue-500 text-sm">
+                      Feb 2021 - Sep 2022
+                    </div>
+                    <h3 class="text-xl font-semibold">Data Analyst</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mt-1">
+                      <span class="flex items-center">
+                        <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.221-.773-9-2.245M16 6.375A23.958 23.958 0 0112 9c-3.004 0-5.857-.68-8.519-2.625M2 10.248c.447.276.961.651 1.534 1.056l1.191 1.489c1.263 1.58 3.275 2.709 5.12 2.947M16.5 5.255c.453.219.975.526 1.549.865l1.159 1.205c1.216 1.255 3.056 2.019 4.852 2.079M10 18.5v-6m-4 3h8"></path>
+                        </svg>
+                        Publicis Media
+                      </span>
+                      <span class="flex items-center">
+                        <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 0011.314 0z"></path>
+                        </svg>
+                        Gurugram, India
+                      </span>
+                    </div>
+                  </div>
+
+                  <ul class="space-y-2 text-gray-600">
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Analyzed 1M+ rows of data to uncover trends, patterns, and hidden insights.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Designed data pipelines that reduced data processing time by 40%, improving availability and accuracy across 4+ departments.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Deployed predictive models (e.g., regression, classification) that achieved up to 90% accuracy in forecasting customer behavior.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Applied statistical techniques to generate business reports that influenced quarterly planning and resource allocation.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Communicated insights using data storytelling to deliver actionable findings to stakeholders with varying technical expertise.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Built and maintained 10+ interactive dashboards in Tableau/Power BI to monitor KPIs, leading to a 25% reduction in reporting time.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="relative animate-fade-in">
+                <div class="timeline-dot"></div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                  <div class="mb-4">
+                    <div class="inline-block px-3 py-1 mb-2 rounded-full bg-blue-100 text-blue-500 text-sm">
+                      Sep 2020 - Feb 2021
+                    </div>
+                    <h3 class="text-xl font-semibold">Media Analyst - Programmatic Hub</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mt-1">
+                      <span class="flex items-center">
+                        <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c
