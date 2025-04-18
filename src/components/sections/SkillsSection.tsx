@@ -2,7 +2,8 @@
 import React, { useEffect, useRef } from 'react';
 import { 
   LineChart, Line, BarChart, Bar, PieChart, Pie, ResponsiveContainer, 
-  Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend
+  Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar
 } from 'recharts';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
