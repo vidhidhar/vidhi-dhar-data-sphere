@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -396,70 +397,52 @@
                   </ul>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
-              <div class="relative animate-fade-in">
-                <div class="timeline-dot"></div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                  <div class="mb-4">
-                    <div class="inline-block px-3 py-1 mb-2 rounded-full bg-blue-100 text-blue-500 text-sm">
-                      Feb 2021 - Sep 2022
-                    </div>
-                    <h3 class="text-xl font-semibold">Data Analyst</h3>
-                    <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mt-1">
-                      <span class="flex items-center">
-                        <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.221-.773-9-2.245M16 6.375A23.958 23.958 0 0112 9c-3.004 0-5.857-.68-8.519-2.625M2 10.248c.447.276.961.651 1.534 1.056l1.191 1.489c1.263 1.58 3.275 2.709 5.12 2.947M16.5 5.255c.453.219.975.526 1.549.865l1.159 1.205c1.216 1.255 3.056 2.019 4.852 2.079M10 18.5v-6m-4 3h8"></path>
-                        </svg>
-                        Publicis Media
-                      </span>
-                      <span class="flex items-center">
-                        <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path>
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 0011.314 0z"></path>
-                        </svg>
-                        Gurugram, India
-                      </span>
-                    </div>
-                  </div>
-
-                  <ul class="space-y-2 text-gray-600">
-                    <li class="flex items-start">
-                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
-                      <span>Analyzed 1M+ rows of data to uncover trends, patterns, and hidden insights.</span>
-                    </li>
-                    <li class="flex items-start">
-                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
-                      <span>Designed data pipelines that reduced data processing time by 40%, improving availability and accuracy across 4+ departments.</span>
-                    </li>
-                    <li class="flex items-start">
-                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
-                      <span>Deployed predictive models (e.g., regression, classification) that achieved up to 90% accuracy in forecasting customer behavior.</span>
-                    </li>
-                    <li class="flex items-start">
-                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
-                      <span>Applied statistical techniques to generate business reports that influenced quarterly planning and resource allocation.</span>
-                    </li>
-                    <li class="flex items-start">
-                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
-                      <span>Communicated insights using data storytelling to deliver actionable findings to stakeholders with varying technical expertise.</span>
-                    </li>
-                    <li class="flex items-start">
-                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-2 flex-shrink-0"></span>
-                      <span>Built and maintained 10+ interactive dashboards in Tableau/Power BI to monitor KPIs, leading to a 25% reduction in reporting time.</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="relative animate-fade-in">
-                <div class="timeline-dot"></div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                  <div class="mb-4">
-                    <div class="inline-block px-3 py-1 mb-2 rounded-full bg-blue-100 text-blue-500 text-sm">
-                      Sep 2020 - Feb 2021
-                    </div>
-                    <h3 class="text-xl font-semibold">Media Analyst - Programmatic Hub</h3>
-                    <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mt-1">
-                      <span class="flex items-center">
-                        <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.querySelector('[data-mobile-menu]');
+      const mobileMenuItems = document.querySelector('[data-mobile-menu-items]');
+      
+      if (mobileMenuButton && mobileMenuItems) {
+        mobileMenuButton.addEventListener('click', function() {
+          mobileMenuItems.classList.toggle('hidden');
+        });
+      }
+      
+      // Create data visualization sphere
+      const sphereContainer = document.querySelector('.data-sphere-container');
+      if (sphereContainer) {
+        createDataSphere(sphereContainer);
+      }
+    });
+    
+    // Data Sphere Animation
+    function createDataSphere(container) {
+      const nodeCount = 30;
+      const containerWidth = container.offsetWidth;
+      const containerHeight = container.offsetHeight;
+      
+      for (let i = 0; i < nodeCount; i++) {
+        const size = Math.random() * 20 + 5;
+        const node = document.createElement('div');
+        node.className = 'data-node';
+        node.style.width = `${size}px`;
+        node.style.height = `${size}px`;
+        node.style.left = `${Math.random() * (containerWidth - size)}px`;
+        node.style.top = `${Math.random() * (containerHeight - size)}px`;
+        node.style.animationDelay = `${Math.random() * 2}s`;
+        node.style.opacity = Math.random() * 0.5 + 0.2;
+        
+        container.appendChild(node);
+      }
+    }
+  </script>
+</body>
+</html>
