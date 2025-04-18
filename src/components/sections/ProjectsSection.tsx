@@ -9,7 +9,7 @@ const projects = [
   {
     title: "PyGuide: Intelligent Python Lab Assistant",
     description: "Developed an AI-driven assistant providing real-time guidance for Python programming, improving learning outcomes for students.",
-    image: "./project-pyguide.png", // Updated path for GitHub Pages
+    image: "./project-pyguide.png", // Using relative path for GitHub Pages
     tags: ["Python", "PyQt5", "Machine Learning", "NLP"],
     link: "https://github.com",
     type: "Dissertation Project"
@@ -17,7 +17,7 @@ const projects = [
   {
     title: "fNIRS Data Vault",
     description: "Led implementation of a data vault for functional near-infrared spectroscopy datasets, improving storage and retrieval efficiency by 45%.",
-    image: "./project-fnirs.png", // Updated path for GitHub Pages
+    image: "./project-fnirs.png", // Using relative path for GitHub Pages
     tags: ["SQL", "Python", "Data Modeling", "Tableau"],
     link: "https://github.com",
     type: "Research Project"
@@ -25,7 +25,7 @@ const projects = [
   {
     title: "Customer Churn Prediction Model",
     description: "Developed a machine learning model to predict customer churn with 87% accuracy, enabling proactive retention strategies for a telecom company.",
-    image: "./project-database.png", // Updated path for GitHub Pages
+    image: "./project-database.png", // Using relative path for GitHub Pages
     tags: ["Python", "Scikit-learn", "Pandas", "Random Forest"],
     link: "https://github.com",
     type: "Data Science Project"
@@ -33,7 +33,7 @@ const projects = [
   {
     title: "Sales Dashboard with Power BI",
     description: "Created interactive Power BI dashboards to visualize sales data across regions, products, and time periods with drill-down capabilities.",
-    image: "./data-grid-bg.png", // Updated path for GitHub Pages
+    image: "./data-grid-bg.png", // Using relative path for GitHub Pages
     tags: ["Power BI", "DAX", "Data Visualization", "ETL"],
     link: "https://github.com",
     type: "Analytics Project"
@@ -76,7 +76,7 @@ const ProjectsSection = () => {
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   onError={(e) => {
                     console.error(`Failed to load image: ${project.image}`);
-                    e.currentTarget.src = "placeholder.svg"; // Fallback to placeholder
+                    e.currentTarget.src = "./placeholder.svg"; // Fallback with proper path for GitHub Pages
                   }}
                 />
               </div>
